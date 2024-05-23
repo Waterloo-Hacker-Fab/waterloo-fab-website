@@ -1,8 +1,14 @@
 .main {
   text-align: center;
+  padding: 50px;
 }
 
 .img {
-  width: 50%;
-  height: 50%;
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h1, h3, p {
+  margin: 20px 0;
 }
