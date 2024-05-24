@@ -6,6 +6,9 @@ import './App.css';
 function App() {
   const [showH3, setShowH3] = useState(false);
   const [showP, setShowP] = useState(false);
+  const [h1Typed, setH1Typed] = useState(false);
+  const [h3Typed, setH3Typed] = useState(false);
+  const [pTyped, setPTyped] = useState(false);
 
   useEffect(() => {
     // Delay for showing h3 after h1 finishes
@@ -16,7 +19,7 @@ function App() {
   useEffect(() => {
     if (showH3) {
       // Delay for showing p after h3 finishes
-      const pTimer = setTimeout(() => setShowP(true), 3000); // Adjust timing as needed
+      const pTimer = setTimeout(() => setShowP(true), 2000); // Adjust timing as needed
       return () => clearTimeout(pTimer);
     }
   }, [showH3]);
@@ -29,8 +32,9 @@ function App() {
           words={['Waterloo Hacker Fab']}
           loop={1}
           typeSpeed={50}
-          cursor
+          cursor={!h1Typed}
           cursorStyle='_'
+          onType={() => setH1Typed(true)}
         />
       </h1>
       {showH3 && (
@@ -39,8 +43,9 @@ function App() {
             words={["We're currently under construction 🚧"]}
             loop={1}
             typeSpeed={50}
-            cursor
+            cursor={!h3Typed}
             cursorStyle='_'
+            onType={() => setH3Typed(true)}
           />
         </h3>
       )}
@@ -50,8 +55,9 @@ function App() {
             words={['Please check back soon for updates!']}
             loop={1}
             typeSpeed={50}
-            cursor
+            cursor={!pTyped}
             cursorStyle='_'
+            onType={() => setPTyped(true)}
           />
         </p>
       )}

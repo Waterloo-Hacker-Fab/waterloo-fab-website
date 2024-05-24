@@ -12,3 +12,15 @@
 h1, h3, p {
   margin: 20px 0;
 }
+
+.main h1 span.Typewriter__cursor,
+.main h3 span.Typewriter__cursor,
+.main p span.Typewriter__cursor {
+  visibility: hidden;
+}
+
+.main h1 span.Typewriter__cursor.active,
+.main h3 span.Typewriter__cursor.active,
+.main p span.Typewriter__cursor.active {
+  visibility: visible;
+}
