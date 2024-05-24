@@ -12,14 +12,14 @@ function App() {
 
   useEffect(() => {
     // Delay for showing h3 after h1 finishes
-    const h3Timer = setTimeout(() => setShowH3(true), 2000); // Adjust timing as needed
+    const h3Timer = setTimeout(() => setShowH3(true), 1700); 
     return () => clearTimeout(h3Timer);
   }, []);
 
   useEffect(() => {
     if (showH3) {
       // Delay for showing p after h3 finishes
-      const pTimer = setTimeout(() => setShowP(true), 2000); // Adjust timing as needed
+      const pTimer = setTimeout(() => setShowP(true), 2800); 
       return () => clearTimeout(pTimer);
     }
   }, [showH3]);
@@ -40,7 +40,7 @@ function App() {
       {showH3 && (
         <h3>
           <Typewriter
-            words={["We're currently under construction 🚧"]}
+            words={["🚧 We're currently under construction 🚧"]}
             loop={1}
             typeSpeed={50}
             cursor={!h3Typed}
@@ -54,7 +54,7 @@ function App() {
           <Typewriter
             words={['Please check back soon for updates!']}
             loop={1}
-            typeSpeed={50}
+            typeSpeed={40}
             cursor={!pTyped}
             cursorStyle='_'
             onType={() => setPTyped(true)}
