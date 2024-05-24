@@ -1,26 +1,22 @@
+body {
+  background-color: #010010;
+  color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .main {
-  text-align: center;
-  padding: 50px;
+  text-align: left;
+  padding: 20px;
 }
 
 .img {
-  width: 150px;
-  height: auto;
+  display: block;
   margin-bottom: 20px;
+  height: 200px;
+  width: 200px;
 }
 
 h1, h3, p {
-  margin: 20px 0;
-}
-
-.main h1 span.Typewriter__cursor,
-.main h3 span.Typewriter__cursor,
-.main p span.Typewriter__cursor {
-  visibility: hidden;
-}
-
-.main h1 span.Typewriter__cursor.active,
-.main h3 span.Typewriter__cursor.active,
-.main p span.Typewriter__cursor.active {
-  visibility: visible;
+  margin: 10px 0;
 }
