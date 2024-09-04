@@ -29,11 +29,48 @@ h2, p {
 h3 {
   font-size: 16px;
   line-height: 1.2;
+  margin: 20px auto;
+  width: fit-content;
+  max-width: 90%;
+  padding: 0 10px;
 }
 
 p {
   font-size: 11px;
   line-height: 1.2;
+}
+
+.checklist {
+  margin-top: 20px;
+  text-align: left;
+  display: inline-block; /* Keeps the checklist within the content width */
+}
+
+.checklist h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.checklist ul {
+  list-style: none;
+  padding: 0;
+  font-size: 12px;
+}
+
+.checklist li {
+  margin: 5px 0;
+}
+
+.roadmap-link {
+  display: block;
+  margin-top: 10px;
+  color: #00ccff;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.roadmap-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
@@ -52,9 +89,25 @@ p {
 
   h3 {
     font-size: 14px;
+    width: fit-content;
+    max-width: 90%;
   }
 
   p {
     font-size: 10px;
   }
+
+  .checklist ul {
+    font-size: 10px;
+  }
+
+  .roadmap-link {
+    font-size: 10px;
+  }
+
+  .discord-link {
+    color: #00ccff;
+  }
+  
 }
+
