@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import logo from './img/hacker_fab_logo.png';
 import photo1 from './img/pattern1.jpg';
@@ -13,35 +13,57 @@ function App() {
   const [showDiscordText, setShowDiscordText] = useState(false);
   const [showPhotos, setShowPhotos] = useState(false);
 
+  const endOfContentRef = useRef(null); // Ref to scroll into view
+
+  // Function to scroll to the end of content
+  const scrollToBottom = () => {
+    endOfContentRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
-    const h3Timer = setTimeout(() => setShowH3(true), 1500);
+    const h3Timer = setTimeout(() => {
+      setShowH3(true);
+      scrollToBottom(); // Scroll when H3 is shown
+    }, 1500);
     return () => clearTimeout(h3Timer);
   }, []);
 
   useEffect(() => {
     if (showH3) {
-      const checklistTimer = setTimeout(() => setShowChecklist(true), 5000);
+      const checklistTimer = setTimeout(() => {
+        setShowChecklist(true);
+        scrollToBottom(); // Scroll when checklist is shown
+      }, 5000);
       return () => clearTimeout(checklistTimer);
     }
   }, [showH3]);
 
   useEffect(() => {
     if (showChecklist) {
-      const discordHeadingTimer = setTimeout(() => setShowDiscordHeading(true), 3000);
+      const discordHeadingTimer = setTimeout(() => {
+        setShowDiscordHeading(true);
+        scrollToBottom(); // Scroll when discord heading is shown
+      }, 3000);
       return () => clearTimeout(discordHeadingTimer);
     }
   }, [showChecklist]);
 
   useEffect(() => {
     if (showDiscordHeading) {
-      const discordTextTimer = setTimeout(() => setShowDiscordText(true), 1000);
+      const discordTextTimer = setTimeout(() => {
+        setShowDiscordText(true);
+        scrollToBottom(); // Scroll when discord text is shown
+      }, 1000);
       return () => clearTimeout(discordTextTimer);
     }
   }, [showDiscordHeading]);
 
   useEffect(() => {
     if (showDiscordText) {
-      const photosTimer = setTimeout(() => setShowPhotos(true), 2000);
+      const photosTimer = setTimeout(() => {
+        setShowPhotos(true);
+        scrollToBottom(); // Scroll when photos are shown
+      }, 2000);
       return () => clearTimeout(photosTimer);
     }
   }, [showDiscordText]);
@@ -52,15 +74,20 @@ function App() {
       <h1>
         <Typewriter words={['Waterloo Hacker Fab']} loop={1} typeSpeed={50} cursor={false} />
       </h1>
-      <br/>
+      <br />
       {showH3 && (
         <h3>
-          <Typewriter words={[
-            'The Waterloo Hacker Fab is a student design team at the University of Waterloo building the tools and processes to manufacture NMOSFET transistors.',
-          ]} loop={1} typeSpeed={30} cursor={false} />
+          <Typewriter
+            words={[
+              'The Waterloo Hacker Fab is a student design team at the University of Waterloo building the tools and processes to manufacture NMOSFET transistors.',
+            ]}
+            loop={1}
+            typeSpeed={30}
+            cursor={false}
+          />
         </h3>
       )}
-      <br/>
+      <br />
       {showChecklist && (
         <div className="checklist">
           <h4>
@@ -77,8 +104,7 @@ function App() {
           </a>
         </div>
       )}
-      <br/>
-      <br/>
+      <br /><br />
       {showDiscordHeading && (
         <h3 className="discord-heading">
           <Typewriter words={['Interested?']} loop={1} typeSpeed={40} cursor={false} />
@@ -89,8 +115,7 @@ function App() {
           <Typewriter words={['Join our Discord']} loop={1} typeSpeed={40} cursor={false} />
         </a>
       )}
-      <br/>
-      <br/>
+      <br /><br />
       {showPhotos && (
         <div>
           <h3>
@@ -103,6 +128,7 @@ function App() {
           </div>
         </div>
       )}
+      <div ref={endOfContentRef}></div> {/* Invisible div to mark the end of content */}
     </div>
   );
 }
