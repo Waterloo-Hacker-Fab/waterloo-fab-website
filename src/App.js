@@ -60,10 +60,10 @@ function App() {
         <h3>
           <Typewriter
             words={[
-              'The Waterloo Hacker Fab is a student design team at the University of Waterloo which is building NMOSFET transistors.',
+              'The Waterloo Hacker Fab is a student design team at the University of Waterloo building the tools and processes to manufacture NMOSFET transistors.',
             ]}
             loop={1}
-            typeSpeed={30} // Typing speed for h3
+            typeSpeed={30} // Faster typing speed for h3
             cursor={false}
           />
         </h3>
