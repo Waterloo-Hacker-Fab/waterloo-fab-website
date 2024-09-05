@@ -4,6 +4,7 @@ import logo from './img/hacker_fab_logo.png';
 import photo1 from './img/pattern1.jpg';
 import photo2 from './img/pattern2.jpg';
 import photo3 from './img/litho.jpg';
+import qrcode from './img/IMG_9250.jpg'
 import './App.css';
 
 function App() {
@@ -111,10 +112,14 @@ function App() {
         </h3>
       )}
       {showDiscordText && (
-        <a href="https://discord.gg/yourdiscordlink" className="discord-link link">
+        <a href="https://discord.gg/C7rVTuUj" className="discord-link link">
           <Typewriter words={['Join our Discord']} loop={1} typeSpeed={40} cursor={false} />
         </a>
       )}
+      <br />
+      <div>
+        <img src={qrcode} alt='QR Code' />
+      </div>
       <br /><br />
       {showPhotos && (
         <div>
