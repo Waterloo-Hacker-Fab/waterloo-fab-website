@@ -4,7 +4,7 @@ import logo from './img/hacker_fab_logo.png';
 import photo1 from './img/pattern1.jpg';
 import photo2 from './img/pattern2.jpg';
 import photo3 from './img/litho.jpg';
-import qrcode from './img/IMG_9250.jpg'
+import qrcode from './img/frame(1).png'
 import './App.css';
 
 function App() {
@@ -117,8 +117,8 @@ function App() {
         </a>
       )}
       <br />
-      <div>
-        <img src={qrcode} alt='QR Code' />
+      <div className=''>
+        <img src={qrcode} alt='QR Code' style={{ width: '400px', height: 'auto' }} />
       </div>
       <br /><br />
       {showPhotos && (
