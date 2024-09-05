@@ -74,6 +74,22 @@ p {
   text-align: left;
 }
 
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates a responsive grid layout */
+  grid-gap: 10px; /* Space between images */
+  max-width: 100%; /* Ensures the grid does not exceed the container width */
+  margin: auto; /* Centers the grid horizontally */
+}
+
+.image-grid img {
+  width: 100%; /* Ensures images take full width of their grid cell */
+  height: auto; /* Maintains aspect ratio of images */
+  object-fit: cover; /* Ensures images cover the grid area without distorting */
+  display: block; /* Images are block-level to manage layout correctly */
+}
+
+
 @media (max-width: 768px) {
   .main {
     padding: 10px 10px; /* Balanced padding */
