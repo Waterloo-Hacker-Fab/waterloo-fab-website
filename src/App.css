@@ -22,7 +22,8 @@ h1 {
   font-size: 36px;
 }
 
-h2, p {
+h2,
+p {
   margin: 20px 0;
 }
 
@@ -61,16 +62,27 @@ p {
   margin: 5px 0;
 }
 
-.roadmap-link {
-  display: block;
-  margin-top: 10px;
-  color: #00ccff;
+/* Common link style */
+.link,
+.roadmap-link,
+.discord-link {
+  color: #00ccff; /* Set the link color */
   text-decoration: none;
   font-size: 12px;
 }
 
-.roadmap-link:hover {
+.link:hover,
+.roadmap-link:hover,
+.discord-link:hover {
   text-decoration: underline;
+}
+
+/* Centering the discord link */
+.discord-link {
+  display: block; /* Make the link block-level */
+  text-align: center; /* Center the text within the block */
+  margin: 10px auto; /* Center the block within its parent */
+  width: fit-content; /* Adjust width to fit the text */
 }
 
 @media (max-width: 600px) {
@@ -101,13 +113,9 @@ p {
     font-size: 10px;
   }
 
-  .roadmap-link {
+  .link,
+  .roadmap-link,
+  .discord-link {
     font-size: 10px;
   }
-
-  .discord-link {
-    color: #00ccff;
-  }
-  
 }
-

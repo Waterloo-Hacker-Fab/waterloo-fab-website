@@ -6,7 +6,8 @@ import './App.css';
 function App() {
   const [showH3, setShowH3] = useState(false);
   const [showChecklist, setShowChecklist] = useState(false);
-  const [showDiscordMessage, setShowDiscordMessage] = useState(false);
+  const [showDiscordHeading, setShowDiscordHeading] = useState(false);
+  const [showDiscordText, setShowDiscordText] = useState(false);
 
   useEffect(() => {
     // Delay for showing h3 after h1 finishes
@@ -19,20 +20,30 @@ function App() {
     if (showH3) {
       const checklistTimer = setTimeout(() => {
         setShowChecklist(true);
-      }, 5000); // Adjust delay based on the typing speed and length of h3 text
+      }, 4000); // Adjust delay based on the typing speed and length of h3 text
       return () => clearTimeout(checklistTimer);
     }
   }, [showH3]);
 
   useEffect(() => {
-    // Show the Discord message after the checklist finishes typing
+    // Show the Discord heading after the checklist finishes typing
     if (showChecklist) {
-      const discordMessageTimer = setTimeout(() => {
-        setShowDiscordMessage(true);
-      }, 7000); // Adjust delay to show after checklist items finish typing
-      return () => clearTimeout(discordMessageTimer);
+      const discordHeadingTimer = setTimeout(() => {
+        setShowDiscordHeading(true);
+      }, 3000); // Adjust delay to show Discord heading after checklist finishes typing
+      return () => clearTimeout(discordHeadingTimer);
     }
   }, [showChecklist]);
+
+  useEffect(() => {
+    // Show the Discord text after the heading finishes typing
+    if (showDiscordHeading) {
+      const discordTextTimer = setTimeout(() => {
+        setShowDiscordText(true);
+      }, 1000); // Adjust delay to show Discord text after heading finishes typing
+      return () => clearTimeout(discordTextTimer);
+    }
+  }, [showDiscordHeading]);
 
   return (
     <div className="main">
@@ -63,7 +74,7 @@ function App() {
             <Typewriter
               words={['Current Fab Capabilities']}
               loop={1}
-              typeSpeed={50} // Typing speed for heading
+              typeSpeed={40} // Typing speed for heading
               cursor={false}
             />
           </h4>
@@ -72,7 +83,7 @@ function App() {
               <Typewriter
                 words={['✅ Phase 1: Patterning and coating']}
                 loop={1}
-                typeSpeed={50} // Typing speed for checklist items
+                typeSpeed={40} // Typing speed for checklist items
                 cursor={false}
               />
             </li>
@@ -80,7 +91,7 @@ function App() {
               <Typewriter
                 words={['🔄 Phase 2: Deposition and annealing (in progress)']}
                 loop={1}
-                typeSpeed={50} // Typing speed for checklist items
+                typeSpeed={40} // Typing speed for checklist items
                 cursor={false}
                 delaySpeed={500}
               />
@@ -89,7 +100,7 @@ function App() {
               <Typewriter
                 words={['⬜ Phase 3: Etching']}
                 loop={1}
-                typeSpeed={50} // Typing speed for checklist items
+                typeSpeed={40} // Typing speed for checklist items
                 cursor={false}
                 delaySpeed={1000}
               />
@@ -98,31 +109,46 @@ function App() {
               <Typewriter
                 words={['⬜ Phase 4: Validation']}
                 loop={1}
-                typeSpeed={50} // Typing speed for checklist items
+                typeSpeed={40} // Typing speed for checklist items
                 cursor={false}
                 delaySpeed={1500}
               />
             </li>
           </ul>
-          <a href="#" className="roadmap-link">
+          <a href="#" className="roadmap-link link">
             <Typewriter
               words={['Click here to see detailed overview of roadmap']}
               loop={1}
-              typeSpeed={50} // Typing effect for link text
+              typeSpeed={40} // Typing effect for link text
               cursor={false}
-              delaySpeed={2000}
+              delaySpeed={1500}
             />
           </a>
           <br />
           <br />
-          {showDiscordMessage && (
-            <p>
-              Interested?{' '}
-              <a href="https://discord.gg/yourdiscordlink" className="discord-link">
-                Join our Discord
-              </a>{' '}
-              to learn how you can support
-            </p>
+          {showDiscordHeading && (
+            <h3>
+              <Typewriter
+                words={['Interested?']}
+                loop={1}
+                typeSpeed={40} // Typing speed for Discord heading
+                cursor={false}
+              />
+            </h3>
+          )}
+          {showDiscordText && (
+            <a
+              href="https://discord.gg/yourdiscordlink"
+              className="discord-link link"
+            >
+              <Typewriter
+                words={['Join our Discord to learn how you can support.']}
+                loop={1}
+                typeSpeed={40} // Typing speed for the full Discord message
+                cursor={false}
+                delaySpeed={300}
+              />
+            </a>
           )}
         </div>
       )}
