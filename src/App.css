@@ -6,33 +6,30 @@ body {
 }
 
 .main {
-  text-align: center;
+  text-align: left; /* Ensures the container text aligns to the left */
   padding: 20px;
+  padding-left: 0px;
+  width: 90%; /* Adjust this to your desired width */
+  margin: auto; /* This centers the .main container on the page */
 }
 
 .img {
-  display: inline-block;
-  margin: 0 auto 20px;
-  height: 200px; 
-  width: 200px; 
+  display: block;
+  margin: 0 auto 20px; /* Keeps the image centered within the .main container */
+  height: 200px;
+  width: 200px;
 }
 
 h1 {
+  text-align: center; /* Keeps the title centered */
   margin: 10px 0;
   font-size: 36px;
 }
 
-h2, p {
-  margin: 20px 0;
-}
-
-h3 {
-  font-size: 16px;
+h2, h3, p {
+  text-align: left; /* Ensuring these elements are left aligned */
+  margin-left: 0; /* Ensure there's no left margin offsetting the alignment */
   line-height: 1.5;
-  margin: 20px auto;
-  width: fit-content;
-  max-width: 90%;
-  padding: 0 10px;
 }
 
 p {
@@ -42,29 +39,18 @@ p {
 
 .checklist {
   margin-top: 20px;
-  text-align: left;
-  display: inline-block; /* Use block display for full width */
-  max-width: 90%; /* Keep it within bounds */
-  margin: 20px auto; /* Center it horizontally */
+  display: block; /* Block display for full control */
 }
 
-/* To ensure checklist items are well positioned */
-.checklist h4 {
-  margin-bottom: 10px;
-  font-size: 16px;
+.checklist h4, .checklist ul, .checklist li {
+  text-align: left; /* Left aligns text within the checklist */
 }
 
 .checklist ul {
-  list-style: none;
-  padding: 0;
-  font-size: 12px;
+  list-style-type: none; /* Removes bullet points from lists */
+  padding: 0; /* Removes padding to align text with other elements */
 }
 
-.checklist li {
-  margin: 5px 0;
-}
-
-/* Common link style */
 .link,
 .roadmap-link,
 .discord-link {
@@ -79,58 +65,42 @@ p {
   text-decoration: underline;
 }
 
-/* Centering the discord link */
-.discord-link {
-  display: block;
-  text-align: center;
-  margin: 10px auto;
-  width: fit-content;
+.discord-heading {
+  text-align: left;
 }
 
-/* Media query for small screens */
-@media (max-width: 600px) {
+.discord-link {
+  display: block;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 10px 10px; /* Balanced padding */
+  }
+
   .img {
-    height: 120px; 
-    width: 120px; 
+    height: 100px; /* Smaller image size for mobile devices */
+    width: 100px;
   }
 
   h1 {
-    font-size: 28px;
-    margin: 10px 0;
-  }
-
-  h3 {
-    font-size: 14px; 
-  }
-
-  p {
-    font-size: 10px; 
+    font-size: 30px; /* Smaller font size for mobile readability */
     line-height: 1.5;
-    margin: 10px 0;
   }
 
-  .checklist {
-    margin-top: 15px;
-    max-width: 100%;
-    padding: 0 10px; 
+  h3, h4, .discord-heading{
+    font-size: 15px; /* Smaller font size for mobile readability */
+    text-align: left;
+    line-height: 1.5;
   }
 
-  .checklist h4 {
-    font-size: 14px;
+  ul, li {
+    font-size: 10px;
+    line-height: 1.5;
   }
-
-  .checklist ul {
-    font-size: 11px;
-  }
-
-  .link,
-  .roadmap-link,
-  .discord-link {
-    font-size: 12px;
-    padding: 0 10px;
-  }
-
-  .discord-link {
-    margin-top: 20px;
+  
+  .link, .roadmap-link, .discord-link {
+    font-size: 10px; /* Smaller links for consistency */
   }
 }

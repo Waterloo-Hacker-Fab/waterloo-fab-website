@@ -11,14 +11,14 @@ function App() {
 
   useEffect(() => {
     // Delay for showing h3 shortly after h1 starts typing
-    const h3Timer = setTimeout(() => setShowH3(true), 1000); // Reduced delay
+    const h3Timer = setTimeout(() => setShowH3(true), 1500); // Reduced delay
     return () => clearTimeout(h3Timer);
   }, []);
 
   useEffect(() => {
     // Start showing the checklist before h3 finishes typing
     if (showH3) {
-      const checklistTimer = setTimeout(() => setShowChecklist(true), 2000); // Reduced delay
+      const checklistTimer = setTimeout(() => setShowChecklist(true), 5000); // Reduced delay
       return () => clearTimeout(checklistTimer);
     }
   }, [showH3]);
@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     // Show the Discord heading shortly before checklist finishes typing
     if (showChecklist) {
-      const discordHeadingTimer = setTimeout(() => setShowDiscordHeading(true), 2000); // Reduced delay
+      const discordHeadingTimer = setTimeout(() => setShowDiscordHeading(true), 3500); // Reduced delay
       return () => clearTimeout(discordHeadingTimer);
     }
   }, [showChecklist]);
@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     // Show the Discord text shortly after the heading starts typing
     if (showDiscordHeading) {
-      const discordTextTimer = setTimeout(() => setShowDiscordText(true), 500); // Reduced delay
+      const discordTextTimer = setTimeout(() => setShowDiscordText(true), 750); // Reduced delay
       return () => clearTimeout(discordTextTimer);
     }
   }, [showDiscordHeading]);
@@ -50,6 +50,7 @@ function App() {
           cursor={false}
         />
       </h1>
+      <br/>
       {showH3 && (
         <h3>
           <Typewriter
@@ -62,6 +63,7 @@ function App() {
           />
         </h3>
       )}
+      <br/>
       {showChecklist && (
         <div className="checklist">
           <h4>
@@ -118,10 +120,11 @@ function App() {
               delaySpeed={1500}
             />
           </a>
-          <br />
-          <br />
+          <br/>
+          <br/>
+          <br/>
           {showDiscordHeading && (
-            <h3>
+            <h3 className="discord-heading">
               <Typewriter
                 words={['Interested?']}
                 loop={1}
