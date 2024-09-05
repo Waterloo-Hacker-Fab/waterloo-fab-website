@@ -10,37 +10,31 @@ function App() {
   const [showDiscordText, setShowDiscordText] = useState(false);
 
   useEffect(() => {
-    // Delay for showing h3 after h1 finishes
-    const h3Timer = setTimeout(() => setShowH3(true), 1500);
+    // Delay for showing h3 shortly after h1 starts typing
+    const h3Timer = setTimeout(() => setShowH3(true), 1000); // Reduced delay
     return () => clearTimeout(h3Timer);
   }, []);
 
   useEffect(() => {
-    // Use a hardcoded delay for showing the checklist after the h3 finishes typing
+    // Start showing the checklist before h3 finishes typing
     if (showH3) {
-      const checklistTimer = setTimeout(() => {
-        setShowChecklist(true);
-      }, 4000); // Adjust delay based on the typing speed and length of h3 text
+      const checklistTimer = setTimeout(() => setShowChecklist(true), 2000); // Reduced delay
       return () => clearTimeout(checklistTimer);
     }
   }, [showH3]);
 
   useEffect(() => {
-    // Show the Discord heading after the checklist finishes typing
+    // Show the Discord heading shortly before checklist finishes typing
     if (showChecklist) {
-      const discordHeadingTimer = setTimeout(() => {
-        setShowDiscordHeading(true);
-      }, 3000); // Adjust delay to show Discord heading after checklist finishes typing
+      const discordHeadingTimer = setTimeout(() => setShowDiscordHeading(true), 2000); // Reduced delay
       return () => clearTimeout(discordHeadingTimer);
     }
   }, [showChecklist]);
 
   useEffect(() => {
-    // Show the Discord text after the heading finishes typing
+    // Show the Discord text shortly after the heading starts typing
     if (showDiscordHeading) {
-      const discordTextTimer = setTimeout(() => {
-        setShowDiscordText(true);
-      }, 1000); // Adjust delay to show Discord text after heading finishes typing
+      const discordTextTimer = setTimeout(() => setShowDiscordText(true), 500); // Reduced delay
       return () => clearTimeout(discordTextTimer);
     }
   }, [showDiscordHeading]);
@@ -63,7 +57,7 @@ function App() {
               'The Waterloo Hacker Fab is a student design team at the University of Waterloo building the tools and processes to manufacture NMOSFET transistors.',
             ]}
             loop={1}
-            typeSpeed={30} // Faster typing speed for h3
+            typeSpeed={30} // Typing speed for h3
             cursor={false}
           />
         </h3>
@@ -142,7 +136,7 @@ function App() {
               className="discord-link link"
             >
               <Typewriter
-                words={['Join our Discord to learn how you can support.']}
+                words={['Join our Discord']}
                 loop={1}
                 typeSpeed={40} // Typing speed for the full Discord message
                 cursor={false}

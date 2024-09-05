@@ -11,10 +11,10 @@ body {
 }
 
 .img {
-  display: inline-flex;
-  margin-bottom: 20px;
-  height: 200px;
-  width: 200px;
+  display: inline-block;
+  margin: 0 auto 20px;
+  height: 200px; 
+  width: 200px; 
 }
 
 h1 {
@@ -22,14 +22,13 @@ h1 {
   font-size: 36px;
 }
 
-h2,
-p {
+h2, p {
   margin: 20px 0;
 }
 
 h3 {
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.5;
   margin: 20px auto;
   width: fit-content;
   max-width: 90%;
@@ -38,15 +37,18 @@ h3 {
 
 p {
   font-size: 11px;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .checklist {
   margin-top: 20px;
   text-align: left;
-  display: inline-block; /* Keeps the checklist within the content width */
+  display: inline-block; /* Use block display for full width */
+  max-width: 90%; /* Keep it within bounds */
+  margin: 20px auto; /* Center it horizontally */
 }
 
+/* To ensure checklist items are well positioned */
 .checklist h4 {
   margin-bottom: 10px;
   font-size: 16px;
@@ -66,7 +68,7 @@ p {
 .link,
 .roadmap-link,
 .discord-link {
-  color: #00ccff; /* Set the link color */
+  color: #00ccff;
   text-decoration: none;
   font-size: 12px;
 }
@@ -79,43 +81,56 @@ p {
 
 /* Centering the discord link */
 .discord-link {
-  display: block; /* Make the link block-level */
-  text-align: center; /* Center the text within the block */
-  margin: 10px auto; /* Center the block within its parent */
-  width: fit-content; /* Adjust width to fit the text */
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  width: fit-content;
 }
 
+/* Media query for small screens */
 @media (max-width: 600px) {
-  .main {
-    padding: 10px;
-  }
-
   .img {
-    height: 150px;
-    width: 150px;
+    height: 120px; 
+    width: 120px; 
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 28px;
+    margin: 10px 0;
   }
 
   h3 {
-    font-size: 14px;
-    width: fit-content;
-    max-width: 90%;
+    font-size: 14px; 
   }
 
   p {
-    font-size: 10px;
+    font-size: 10px; 
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+
+  .checklist {
+    margin-top: 15px;
+    max-width: 100%;
+    padding: 0 10px; 
+  }
+
+  .checklist h4 {
+    font-size: 14px;
   }
 
   .checklist ul {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .link,
   .roadmap-link,
   .discord-link {
-    font-size: 10px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  .discord-link {
+    margin-top: 20px;
   }
 }
