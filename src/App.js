@@ -116,10 +116,6 @@ function App() {
           <Typewriter words={['Join our Discord']} loop={1} typeSpeed={40} cursor={false} />
         </a>
       )}
-      <br />
-      <div className=''>
-        <img src={qrcode} alt='QR Code' style={{ width: '400px', height: 'auto' }} />
-      </div>
       <br /><br />
       {showPhotos && (
         <div>
