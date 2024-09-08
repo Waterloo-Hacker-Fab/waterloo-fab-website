@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import logo from './img/hacker_fab_logo.png';
 import photo1 from './img/pattern1.jpg';
@@ -13,18 +13,11 @@ function App() {
   const [showDiscordHeading, setShowDiscordHeading] = useState(false);
   const [showDiscordText, setShowDiscordText] = useState(false);
   const [showPhotos, setShowPhotos] = useState(false);
-
-  const endOfContentRef = useRef(null); // Ref to scroll into view
-
-  // Function to scroll to the end of content
-  const scrollToBottom = () => {
-    endOfContentRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [h3FirstPartDone, setH3FirstPartDone] = useState(false);
 
   useEffect(() => {
     const h3Timer = setTimeout(() => {
       setShowH3(true);
-      scrollToBottom(); // Scroll when H3 is shown
     }, 1500);
     return () => clearTimeout(h3Timer);
   }, []);
@@ -33,8 +26,7 @@ function App() {
     if (showH3) {
       const checklistTimer = setTimeout(() => {
         setShowChecklist(true);
-        scrollToBottom(); // Scroll when checklist is shown
-      }, 5000);
+      }, 4000);
       return () => clearTimeout(checklistTimer);
     }
   }, [showH3]);
@@ -43,7 +35,6 @@ function App() {
     if (showChecklist) {
       const discordHeadingTimer = setTimeout(() => {
         setShowDiscordHeading(true);
-        scrollToBottom(); // Scroll when discord heading is shown
       }, 3000);
       return () => clearTimeout(discordHeadingTimer);
     }
@@ -53,7 +44,6 @@ function App() {
     if (showDiscordHeading) {
       const discordTextTimer = setTimeout(() => {
         setShowDiscordText(true);
-        scrollToBottom(); // Scroll when discord text is shown
       }, 1000);
       return () => clearTimeout(discordTextTimer);
     }
@@ -63,7 +53,6 @@ function App() {
     if (showDiscordText) {
       const photosTimer = setTimeout(() => {
         setShowPhotos(true);
-        scrollToBottom(); // Scroll when photos are shown
       }, 2000);
       return () => clearTimeout(photosTimer);
     }
@@ -80,12 +69,25 @@ function App() {
         <h3>
           <Typewriter
             words={[
-              'The Waterloo Hacker Fab is a student design team at the University of Waterloo building the tools and processes to manufacture NMOSFET transistors.',
+              'A low-cost open-source chip fab at the University of Waterloo. Part of ',
             ]}
             loop={1}
             typeSpeed={30}
             cursor={false}
+            onLoopDone={() => setH3FirstPartDone(true)}
           />
+          {h3FirstPartDone && (
+            <>
+              <a href="https://hackerfab.org" target="_blank" rel="noopener noreferrer" className="link">
+                <Typewriter
+                  words={['hackerfab.org']}
+                  loop={1}
+                  typeSpeed={60}
+                  cursor={false}
+                />
+              </a>
+            </>
+          )}
         </h3>
       )}
       <br />
@@ -100,7 +102,7 @@ function App() {
             <li><Typewriter words={['⬜ Phase 3: Etching']} loop={1} typeSpeed={40} cursor={false} /></li>
             <li><Typewriter words={['⬜ Phase 4: Validation']} loop={1} typeSpeed={40} cursor={false} /></li>
           </ul>
-          <a href="#" className="roadmap-link link">
+          <a href="https://www.notion.so/tobiasgm/first-few-things-that-need-to-be-built-bffecb3723a54db7a25b8014129cc3ba" className="roadmap-link link">
             <Typewriter words={['Click here to see detailed overview of roadmap']} loop={1} typeSpeed={40} cursor={false} />
           </a>
         </div>
@@ -129,7 +131,6 @@ function App() {
           </div>
         </div>
       )}
-      <div ref={endOfContentRef}></div> {/* Invisible div to mark the end of content */}
     </div>
   );
 }
