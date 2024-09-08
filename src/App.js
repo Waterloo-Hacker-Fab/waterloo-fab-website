@@ -78,7 +78,7 @@ function App() {
           />
           {h3FirstPartDone && (
             <>
-              <a href="http://hackerfab.org" target="_blank" rel="noopener noreferrer" className="link">
+              <a href="http://www.hackerfab.org/" target="_blank" rel="noopener noreferrer" className="link">
                 <Typewriter
                   words={['hackerfab.org']}
                   loop={1}
