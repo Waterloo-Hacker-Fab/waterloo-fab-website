@@ -114,7 +114,7 @@ function App() {
         </h3>
       )}
       {showDiscordText && (
-        <a href="https://discord.gg/C7rVTuUj" className="discord-link link">
+        <a href="https://discord.gg/3zfrsEcs" className="discord-link link">
           <Typewriter words={['Join our Discord']} loop={1} typeSpeed={40} cursor={false} />
         </a>
       )}
