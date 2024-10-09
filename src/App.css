@@ -93,11 +93,6 @@ p {
   display: block; /* Images are block-level to manage layout correctly */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 .image-grid img {
   width: 100%;
   height: auto;
