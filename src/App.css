@@ -1,134 +1,42 @@
-html {
-  scroll-behavior: smooth;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-body {
-  background-color: #010010;
-  color: white;
-  margin: 0;
-  font-family: 'Press Start 2P', cursive;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.main {
-  text-align: left; /* Ensures the container text aligns to the left */
-  padding: 20px;
-  padding-left: 0px;
-  width: 90%; /* Adjust this to your desired width */
-  margin: auto; /* This centers the .main container on the page */
-}
-
-.img {
-  display: block;
-  margin: 0 auto 20px; /* Keeps the image centered within the .main container */
-  height: 200px;
-  width: 200px;
-}
-
-h1 {
-  text-align: center; /* Keeps the title centered */
-  margin: 10px 0;
-  font-size: 36px;
-}
-
-h2, h3, p {
-  text-align: left; /* Ensuring these elements are left aligned */
-  margin-left: 0; /* Ensure there's no left margin offsetting the alignment */
-  line-height: 1.5;
-}
-
-p {
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-.checklist {
-  margin-top: 20px;
-  display: block; /* Block display for full control */
-}
-
-.checklist h4, .checklist ul, .checklist li {
-  text-align: left; /* Left aligns text within the checklist */
-}
-
-.checklist ul {
-  list-style-type: none; /* Removes bullet points from lists */
-  padding: 0; /* Removes padding to align text with other elements */
-}
-
-.link,
-.roadmap-link,
-.discord-link {
-  color: #00ccff;
-  text-decoration: none;
-  font-size: 12px;
-}
-
-.link:hover,
-.roadmap-link:hover,
-.discord-link:hover {
-  text-decoration: underline;
-}
-
-.discord-heading {
-  text-align: left;
-}
-
-.discord-link {
-  display: block;
-  text-align: left;
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates a responsive grid layout */
-  grid-gap: 10px; /* Space between images */
-  max-width: 100%; /* Ensures the grid does not exceed the container width */
-  margin: auto; /* Centers the grid horizontally */
-}
-
-.image-grid img {
-  width: 100%; /* Ensures images take full width of their grid cell */
-  height: auto; /* Maintains aspect ratio of images */
-  object-fit: cover; /* Ensures images cover the grid area without distorting */
-  display: block; /* Images are block-level to manage layout correctly */
-}
-
-.image-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  animation: fadeIn 1s ease-out forwards; /* Apply the animation */
-}
-
-
-@media (max-width: 768px) {
-  .main {
-    padding: 10px 10px; /* Balanced padding */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .img {
-    height: 100px; /* Smaller image size for mobile devices */
-    width: 100px;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
+}
 
-  h1 {
-    font-size: 30px; /* Smaller font size for mobile readability */
-    line-height: 1.5;
-  }
+.card {
+  padding: 2em;
+}
 
-  h3, h4, .discord-heading{
-    font-size: 15px; /* Smaller font size for mobile readability */
-    text-align: left;
-    line-height: 1.5;
-  }
-
-  ul, li {
-    font-size: 10px;
-    line-height: 1.5;
-  }
-  
-  .link, .roadmap-link, .discord-link {
-    font-size: 10px; /* Smaller links for consistency */
-  }
+.read-the-docs {
+  color: #888;
 }
